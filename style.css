@@ -3,6 +3,7 @@
   --text: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: dark;
+  --tint: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 /* Dark by default; light only when the visitor picks it with the toggle. */
 :root[data-theme="light"] { --paper: #f4f1ea; --ink: #1b1a18; --muted: #6b6656; --rule: #dcd6c9; --accent: #6f4528; color-scheme: light; }
@@ -11,6 +12,7 @@
 html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--text); -webkit-font-smoothing: antialiased; }
+::selection { background: var(--tint); }
 a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
 h1, h2, h3, p { margin: 0; }
 h3 { font-size: 1rem; font-weight: 600; }
@@ -20,7 +22,7 @@ h3 { font-size: 1rem; font-weight: 600; }
 .nav .name { font-weight: 600; text-decoration: none; }
 #links { display: flex; gap: 18px; }
 #links a, .icons a, .icons button { color: var(--muted); text-decoration: none; }
-#links a:hover, .icons a:hover, .icons button:hover { color: var(--ink); }
+#links a:hover, .icons a:hover, .icons button:hover { color: var(--accent); }
 .icons { display: flex; align-items: center; gap: 16px; margin-left: auto; }
 .icons a { display: flex; }
 .icons button { font: inherit; background: none; border: 0; padding: 0; cursor: pointer; }
@@ -39,8 +41,11 @@ h1 .name { color: var(--accent); font-weight: 700; }
 .role { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 10px; }
 .lede { font-size: 1.15rem; max-width: 30em; margin-top: 20px; }
 
-.block { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 72px 0; border-top: 1px solid var(--rule); }
-.block h2 { font-family: var(--mono); font-size: 13px; font-weight: 400; color: var(--muted); }
+.block { padding: 72px 0; }
+/* Section titles read "/ about", with a thin rule running out to the right. */
+.block h2 { display: flex; align-items: center; gap: 0.4em; margin-bottom: 32px; font-size: 1.75rem; font-weight: 600; letter-spacing: -0.01em; }
+.block h2::before { content: "/"; color: var(--accent); font-weight: 400; }
+.block h2::after { content: ""; flex: 0 1 300px; height: 1px; margin-left: 0.6em; background: var(--rule); }
 .body { max-width: 38em; }
 .body > p + p { margin-top: 1em; }
 .meta { font-size: 14px; color: var(--muted); }
@@ -53,18 +58,21 @@ h1 .name { color: var(--accent); font-weight: 700; }
 .tabs { display: flex; flex-direction: column; border-left: 1px solid var(--rule); }
 [role="tab"] { font: 14px var(--mono); text-align: left; color: var(--muted); background: none; border: 0;
                border-left: 2px solid transparent; margin-left: -1px; padding: 8px 14px; cursor: pointer; }
-[role="tab"]:hover { color: var(--ink); }
-[role="tab"][aria-selected="true"] { color: var(--ink); border-left-color: var(--ink); }
+[role="tab"]:hover { color: var(--accent); background: var(--tint); }
+[role="tab"][aria-selected="true"] { color: var(--accent); border-left-color: var(--accent); }
+.co { color: var(--accent); }
 [role="tabpanel"] { max-width: 38em; }
 [role="tabpanel"] h3 + .when { margin-bottom: 12px; }
 [role="tabpanel"] ul + h3 { margin-top: 32px; }
-[role="tabpanel"] ul { margin: 0; padding-left: 1.1em; color: var(--muted); }
+[role="tabpanel"] ul { list-style: none; margin: 0; padding: 0; color: var(--muted); }
+[role="tabpanel"] li { position: relative; padding-left: 1.5em; }
+[role="tabpanel"] li::before { content: "▹"; position: absolute; left: 0; color: var(--accent); }
 [role="tabpanel"] li + li { margin-top: 8px; }
 .links a { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: start; text-decoration: none; }
 .links .icon { width: 22px; height: 22px; margin-top: 2px; color: var(--muted); }
 .links .kind { color: var(--accent); }
 .links a:hover h3 { text-decoration: underline; }
-.links a:hover .repo { color: var(--ink); }
+.links a:hover .repo, .links a:hover h3 { color: var(--accent); }
 
 .maps { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: none; }
 figure { margin: 0; }
@@ -79,7 +87,7 @@ figcaption p { color: var(--muted); font-size: 14px; }
 .say { font-size: 1.5rem; font-weight: 600; }
 .contacts { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 16px 0 0; padding: 0; }
 .contacts a { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; }
-.contacts a:hover { color: var(--ink); }
+.contacts a:hover { color: var(--accent); }
 .contacts .icon { width: 20px; height: 20px; }
 
 footer { max-width: 960px; margin: 0 auto; padding: 32px 24px 48px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--rule); }
@@ -93,11 +101,12 @@ footer { max-width: 960px; margin: 0 auto; padding: 32px 24px 48px; font-size: 1
   main { padding: 0 16px; }
   .hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 56px; min-height: auto; justify-items: center; }
   .hero > div { justify-self: stretch; }
-  .block { grid-template-columns: 1fr; gap: 16px; padding: 48px 0; }
+  .block { padding: 48px 0; }
+  .block h2 { font-size: 1.5rem; margin-bottom: 24px; }
   .jobs { grid-template-columns: 1fr; gap: 20px; }
   .tabs { flex-direction: row; overflow-x: auto; border-left: 0; border-bottom: 1px solid var(--rule); }
   [role="tab"] { border-left: 0; border-bottom: 2px solid transparent; margin: 0 0 -1px; padding: 8px 14px; flex: none; }
-  [role="tab"][aria-selected="true"] { border-bottom-color: var(--ink); }
+  [role="tab"][aria-selected="true"] { border-bottom-color: var(--accent); }
   .maps { grid-template-columns: 1fr; }
   footer { padding: 24px 16px 40px; }
 }
