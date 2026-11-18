@@ -132,8 +132,11 @@
     Object.assign(pointer, { x: e.clientX - r.left, y: e.clientY - r.top, t: performance.now(), active: true });
     wake();
   });
-  canvas.addEventListener("pointerleave", () => { pointer.active = false; });
-  canvas.addEventListener("pointerup", (e) => { if (e.pointerType === "touch") pointer.active = false; });
+  // A finger that lifts, leaves, or starts a page scroll (cancel) stops pushing glyphs, so they all return home.
+  const release = () => { pointer.active = false; wake(); };
+  canvas.addEventListener("pointerleave", release);
+  canvas.addEventListener("pointercancel", release);
+  canvas.addEventListener("pointerup", (e) => { if (e.pointerType === "touch") release(); });
   // Phones fire resize when the address bar shows or hides on scroll; only a width change needs a rebuild.
   addEventListener("resize", () => {
     if (Math.abs(canvas.getBoundingClientRect().width - size) > 1) { fit(); build(); }
