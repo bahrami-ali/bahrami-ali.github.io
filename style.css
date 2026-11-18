@@ -30,7 +30,7 @@ h3 { font-size: 1rem; font-weight: 600; }
 .icon { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 
 main { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-.hero { min-height: calc(100svh - 56px); display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
+.hero { padding: 32px 0 24px; display: grid; grid-template-columns: auto 1fr; gap: 48px; align-items: center; }
 #portrait { width: min(80vw, 380px); aspect-ratio: 1; touch-action: pan-y; cursor: crosshair; }
 .hero img { width: min(80vw, 380px); filter: grayscale(1); }
 h1 { font-size: clamp(2.25rem, 6vw, 3.5rem); font-weight: 400; letter-spacing: -0.02em; line-height: 1.1; }
@@ -41,7 +41,7 @@ h1 .name { color: var(--accent); font-weight: 700; }
 .role { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-top: 10px; }
 .lede { font-size: 1.15rem; max-width: 30em; margin-top: 20px; }
 
-.block { padding: 72px 0; }
+.block { padding: 48px 0; }
 /* Section titles read "/ about", with a thin rule running out to the right. */
 .block h2 { display: flex; align-items: center; gap: 0.4em; margin-bottom: 32px; font-size: 1.75rem; font-weight: 600; letter-spacing: -0.01em; }
 .block h2::before { content: "/"; color: var(--accent); font-weight: 400; }
@@ -99,9 +99,9 @@ footer { max-width: 960px; margin: 0 auto; padding: 32px 24px 48px; font-size: 1
   #links.open { display: flex; }
   #links a { padding: 10px 0; font-size: 16px; border-top: 1px solid var(--rule); }
   main { padding: 0 16px; }
-  .hero { grid-template-columns: 1fr; gap: 24px; padding: 32px 0 56px; min-height: auto; justify-items: center; }
+  .hero { grid-template-columns: 1fr; gap: 16px; padding: 4px 0 16px; justify-items: center; }
   .hero > div { justify-self: stretch; }
-  .block { padding: 48px 0; }
+  .block { padding: 32px 0; }
   .block h2 { font-size: 1.5rem; margin-bottom: 24px; }
   .jobs { grid-template-columns: 1fr; gap: 20px; }
   .tabs { flex-direction: row; overflow-x: auto; border-left: 0; border-bottom: 1px solid var(--rule); }
