@@ -1,12 +1,12 @@
 :root {
-  --paper: #121211; --ink: #ebe6da; --muted: #8e897d; --rule: #2c2b28; --accent: #a87b55;
+  --paper: #121211; --ink: #ebe6da; --muted: #8e897d; --rule: #2c2b28; --accent: #1ed760;
   --text: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   color-scheme: dark;
   --tint: color-mix(in srgb, var(--accent) 14%, transparent);
 }
 /* Dark by default; light only when the visitor picks it with the toggle. */
-:root[data-theme="light"] { --paper: #f4f1ea; --ink: #1b1a18; --muted: #6b6656; --rule: #dcd6c9; --accent: #6f4528; color-scheme: light; }
+:root[data-theme="light"] { --paper: #f4f1ea; --ink: #1b1a18; --muted: #6b6656; --rule: #dcd6c9; --accent: #167a3a; color-scheme: light; }
 
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 64px; }
@@ -14,7 +14,7 @@ html { scroll-behavior: smooth; scroll-padding-top: 64px; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.6 var(--text); -webkit-font-smoothing: antialiased; }
 ::selection { background: var(--tint); }
 a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-h1, h2, h3, p { margin: 0; }
+h1, h2, h3, h4, p { margin: 0; }
 h3 { font-size: 1rem; font-weight: 600; }
 
 .nav { position: sticky; top: 0; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px;
@@ -43,12 +43,13 @@ h1 .name { color: var(--accent); font-weight: 700; }
 
 .block { padding: 48px 0; }
 /* Section titles read "/ about", with a thin rule running out to the right. */
-.block h2 { display: flex; align-items: center; gap: 0.4em; margin-bottom: 32px; font-size: 1.75rem; font-weight: 600; letter-spacing: -0.01em; }
-.block h2::before { content: "/"; color: var(--accent); font-weight: 400; }
+.block h2 { color: var(--accent); display: flex; align-items: center; gap: 0.4em; margin-bottom: 32px; font-size: 1.75rem; font-weight: 600; letter-spacing: -0.01em; }
+.block h2::before { content: "/"; font-weight: 400; }
 .block h2::after { content: ""; flex: 0 1 300px; height: 1px; margin-left: 0.6em; background: var(--rule); }
 .body { max-width: 38em; }
 .body > p + p { margin-top: 1em; }
-.meta { font-size: 14px; color: var(--muted); }
+.facts { list-style: none; margin: 0 0 1.5em; padding: 0; display: grid; gap: 6px; }
+.facts span { display: inline-block; width: 1.8em; }
 .list { list-style: none; margin: 0; padding: 0; }
 .list li + li { margin-top: 28px; }
 .list p { color: var(--muted); }
@@ -83,6 +84,18 @@ dialog img { display: block; max-width: 96vw; max-height: 96vh; width: auto; hei
 figure img { display: block; width: 100%; height: auto; border: 1px solid var(--rule); }
 figcaption { margin-top: 12px; }
 figcaption p { color: var(--muted); font-size: 14px; }
+
+.note { color: var(--muted); margin: -16px 0 32px; }
+.shelves { display: grid; gap: 40px; }
+.shelf h3 { font: 13px var(--mono); color: var(--muted); margin-bottom: 16px; }
+.books { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 28px 32px; }
+.books a { display: grid; grid-template-columns: 64px 1fr; gap: 16px; align-items: start; text-decoration: none; }
+.books img { display: block; width: 64px; height: auto; border: 1px solid var(--rule); }
+.books h4 { font-size: 1rem; font-weight: 600; line-height: 1.35; }
+.books p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+.books .by { color: var(--ink); margin-top: 2px; }
+.books .buy { font-family: var(--mono); font-size: 12px; }
+.books a:hover h4, .books a:hover .buy { color: var(--accent); }
 
 .say { font-size: 1.5rem; font-weight: 600; }
 .contacts { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 28px; margin: 16px 0 0; padding: 0; }
