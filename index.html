@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ali Bahrami</title>
+<meta name="description" content="Ali Bahrami, data engineer in Vancouver, BC. Lakehouses, pipelines, AI agents, and maps.">
+<meta property="og:title" content="Ali Bahrami">
+<meta property="og:description" content="Data engineer. Databricks, Azure, GCP. Also makes maps.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://bahrami-ali.github.io/">
+<meta property="og:image" content="https://bahrami-ali.github.io/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Shaded relief map of the Salish Sea">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cstyle%3Etext%7Bfill:%231b1a18%7D@media(prefers-color-scheme:dark)%7Btext%7Bfill:%23ebe6da%7D%7D%3C/style%3E%3Ctext x='8' y='12.5' font-family='monospace' font-size='13' text-anchor='middle'%3E%40%3C/text%3E%3C/svg%3E">
+<script>try { const t = localStorage.getItem("theme"); if (t) document.documentElement.dataset.theme = t; } catch (e) {}</script>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Icons: Feather (MIT); plane and ball drawn for this site -->
+<svg hidden>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+  <symbol id="i-plane" viewBox="0 0 24 24"><path d="M12 2c.8 0 1.5.7 1.5 1.5V9l7.5 4.5v2L13.5 13v5l2.5 2v1.5L12 20.5l-4 1V20l2.5-2v-5L3 15.5v-2L10.5 9V3.5C10.5 2.7 11.2 2 12 2z"/></symbol>
+  <symbol id="i-dollar" viewBox="0 0 24 24"><path d="M12 1v22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+  <symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 7l4.76 3.45-1.82 5.6H9.06l-1.82-5.6z"/><path d="M12 7V2M16.76 10.45l4.75-1.54M14.94 16.05l2.94 4.04M9.06 16.05l-2.94 4.04M7.24 10.45L2.49 8.91"/></symbol>
+  <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+</svg>
+<header class="nav">
+  <a class="name" href="#top">Ali Bahrami</a>
+  <nav id="links">
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#maps">Maps</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="icons">
+    <a class="email" href="#contact" data-e="moc.liamg@imarhabila.olleh" aria-label="Email"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></a>
+    <a href="https://www.linkedin.com/in/bahrami-ali" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
+    <a href="https://github.com/bahrami-ali" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg></a>
+    <button id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
+    <button id="menu" type="button" aria-label="Menu" aria-expanded="false" aria-controls="links"><svg class="icon" aria-hidden="true" viewBox="0 0 24 24"><path d="M3 7h18M3 12h18M3 17h18"/></svg></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <canvas id="portrait" role="img" aria-label="Portrait of Ali Bahrami drawn in text characters"></canvas>
+    <div>
+      <h1 aria-label="hi, ali here.">hi, <span class="name" id="typed">ali</span> here.<span class="caret" aria-hidden="true">|</span></h1>
+      <p class="role">Ali Bahrami · Data engineer · Databricks, Azure, GCP</p>
+      <p class="lede">I build lakehouses, pipelines, and the AI agents that run on them. I can crunch your numbers, and tell you a good story about them.</p>
+    </div>
+  </section>
+
+  <section id="about" class="block">
+    <h2>About</h2>
+    <div class="body">
+      <p>I design lakehouses and warehouses, build batch and streaming pipelines, and turn raw data into answers people use. Lately that includes AI agents on top of the data, on Microsoft Fabric, Databricks Mosaic AI, and Google Vertex AI. It started with Lego, Stronghold Crusader, and chess. Same instinct, bigger blocks.</p>
+      <p>I started school in a refugee camp in Pakistan, had my first English class in Bangkok, and studied economics at NYU Abu Dhabi and NYU Stern. Along the way I taught Persian, English, Hindi, Arabic, Mandarin, and programming. I am based in Vancouver, BC.</p>
+      <p>Off the clock: Pacific Northwest mountains, chess, collecting maps, and colonial and post-colonial literature.</p>
+      <p class="meta">Databricks Certified Data Engineer Associate · Microsoft Certified: Fabric Data Engineer Associate</p>
+    </div>
+  </section>
+
+  <section id="experience" class="block">
+    <h2>Experience</h2>
+    <div class="body jobs">
+      <div class="tabs" role="tablist" aria-label="Workplaces">
+        <button role="tab" id="t-beatport" aria-controls="p-beatport">Beatport</button>
+        <button role="tab" id="t-canfor" aria-controls="p-canfor">Canfor</button>
+        <button role="tab" id="t-ledcor" aria-controls="p-ledcor">Ledcor</button>
+        <button role="tab" id="t-nyu" aria-controls="p-nyu">NYU</button>
+      </div>
+      <div role="tabpanel" id="p-beatport" aria-labelledby="t-beatport">
+        <h3>Data Engineer · Beatport</h3>
+        <p class="when">May 2026 to now · Remote (Los Angeles)</p>
+        <ul>
+          <li>Own the royalties and finance pipelines on GCP end to end: Airflow, BigQuery, dbt, Looker, plus monitoring and access control.</li>
+          <li>Reconcile $1.5M+ in royalty discrepancies by tracing mismatches across source systems, warehouse models, and partner statements.</li>
+          <li>Migrate legacy Pentaho and Jenkins ETL onto Airflow, BigQuery, and dbt.</li>
+          <li>Keep partner integrations running over APIs, SFTP, and GCS, and catch load failures before they reach reports.</li>
+          <li>Train engineers to work with AI assistants through a standard AI workspace setup.</li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-canfor" aria-labelledby="t-canfor">
+        <h3>Data Engineer · Canfor</h3>
+        <p class="when">Jan 2025 to May 2026 · Vancouver</p>
+        <ul>
+          <li>Built a Microsoft Fabric lakehouse (bronze, silver, gold) taking in 10M+ rows a day with PySpark and Spark SQL, orchestrated in Azure Data Factory. ETL ran 75% faster, and retiring legacy servers saved $190K.</li>
+          <li>Executive KPI reporting on a Kimball model in Azure SQL and Power BI, cutting turnaround from days to hours.</li>
+          <li>Two-tier analytics for an operations-planning app: a lakehouse for reporting and Azure SQL for real-time data.</li>
+          <li>Wrote the Fabric governance: naming, reusable code patterns, access, and version control in Azure DevOps and Git.</li>
+        </ul>
+        <h3>Data Analyst · Canfor</h3>
+        <p class="when">Feb 2023 to Jan 2025 · Vancouver</p>
+        <ul>
+          <li>Version-controlled ETL on Azure Synapse and Delta Lake with PySpark and Spark SQL.</li>
+          <li>Power BI dashboards for Finance, Safety, Marketing, and Market Intelligence.</li>
+          <li>Helped move legacy ETL and reporting to the cloud, and automated manual work with Python, Data Factory, and Power Automate.</li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-ledcor" aria-labelledby="t-ledcor">
+        <h3>Data Analyst, Telecommunications · Ledcor</h3>
+        <p class="when">Feb 2022 to Feb 2023 · Vancouver</p>
+        <ul>
+          <li>Built ETL, pipelines, dashboards, and KPI boards for the Telecom/Drops program in Python, SQL, and Power BI.</li>
+          <li>Reconciled costs and revenue to close a $500K gap in the invoicing system, with data audits and ad hoc reports.</li>
+        </ul>
+      </div>
+      <div role="tabpanel" id="p-nyu" aria-labelledby="t-nyu">
+        <h3>BA Economics (Finance) · New York University</h3>
+        <p class="when">2016 to 2021 · Abu Dhabi and New York</p>
+        <ul>
+          <li>Full scholarship at NYU Abu Dhabi.</li>
+          <li>Studied in the UAE, the US, Greece, Nepal, and Jordan.</li>
+          <li>Statistics, econometrics, financial analysis, Python, linear algebra.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="block">
+    <h2>Projects</h2>
+    <ul class="body list links">
+      <li><a href="https://github.com/bahrami-ali/Sales-Lead-Scoring"><svg class="icon kind" aria-hidden="true"><use href="#i-target"/></svg><div><h3>Sales lead scoring</h3><p>Which leads turn into customers, from open sales data.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://github.com/bahrami-ali/Detecting_Duplicate_Questions_Quora"><svg class="icon kind" aria-hidden="true"><use href="#i-copy"/></svg><div><h3>Duplicate questions</h3><p>NLP to find duplicate questions in Quora's dataset.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://github.com/bahrami-ali/Predicting_Flight_Delays"><svg class="icon kind" aria-hidden="true"><use href="#i-plane"/></svg><div><h3>Flight delays</h3><p>Supervised learning to predict how late a flight will be.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://github.com/bahrami-ali/Predicting_Loan_Approvals"><svg class="icon kind" aria-hidden="true"><use href="#i-dollar"/></svg><div><h3>Loan approvals</h3><p>Predicting approval from applicant data.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://github.com/bahrami-ali/Clustering_Banking_Behavior"><svg class="icon kind" aria-hidden="true"><use href="#i-users"/></svg><div><h3>Banking behavior</h3><p>Segmenting a bank's customers by demographics and habits.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://github.com/bahrami-ali/Football_Data_Visualization"><svg class="icon kind" aria-hidden="true"><use href="#i-ball"/></svg><div><h3>Football, 1872 to today</h3><p>Exploring a century and a half of international matches.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://github.com/bahrami-ali/Data-Wrangling-using-APIs"><svg class="icon kind" aria-hidden="true"><use href="#i-code"/></svg><div><h3>Data wrangling with APIs</h3><p>Yelp and Google APIs.</p></div><svg class="icon repo" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+    </ul>
+  </section>
+
+  <section id="maps" class="block">
+    <h2>Maps</h2>
+    <div class="body maps">
+      <figure>
+        <a href="assets/salish-sea-large.webp"><img src="assets/salish-sea-thumb.webp" width="640" height="853" loading="lazy" alt="Shaded relief poster of the Salish Sea"></a>
+        <figcaption><h3>Salish Sea</h3><p>Shaded relief print, 18 × 24 in.<br>SRTM v4.1 (CGIAR-CSI), GSHHG, Natural Earth.</p></figcaption>
+      </figure>
+      <figure>
+        <a href="assets/jaghori-large.webp"><img src="assets/jaghori-thumb.webp" width="640" height="853" loading="lazy" alt="Shaded relief poster of Jaghori District, Ghazni, Afghanistan"></a>
+        <figcaption><h3>Jaghori, Afghanistan</h3><p>Shaded relief print, 18 × 24 in, English and Persian labels.<br>OCHA COD-AB, SRTM v4.1, OpenStreetMap.</p></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="contact" class="block">
+    <h2>Contact</h2>
+    <div class="body">
+      <p class="say">Say hello.</p>
+      <ul class="contacts">
+        <li><a class="email" href="#contact" data-e="moc.liamg@imarhabila.olleh"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg>Email</a></li>
+        <li><a href="https://www.linkedin.com/in/bahrami-ali"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg>LinkedIn</a></li>
+        <li><a href="https://github.com/bahrami-ali"><svg class="icon" aria-hidden="true"><use href="#i-github"/></svg>GitHub</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<dialog id="viewer" aria-label="Map, full size"><img alt=""></dialog>
+
+<footer>© 2026 Ali Bahrami. All rights reserved.</footer>
+
+<script src="portrait.js" defer></script>
+<script>
+"use strict";
+document.getElementById("theme").addEventListener("click", () => {
+  const root = document.documentElement;
+  const next = getComputedStyle(root).colorScheme === "dark" ? "light" : "dark";
+  root.dataset.theme = next;
+  try { localStorage.setItem("theme", next); } catch (e) {}
+});
+
+// The name types itself out once; the full text is in the HTML for no-JS and reduced motion.
+const typed = document.getElementById("typed");
+if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const text = typed.textContent;
+  typed.textContent = "";
+  [...text].forEach((ch, i) => setTimeout(() => { typed.textContent += ch; }, 500 + i * 150));
+}
+
+// Email is stored reversed so address scrapers that skip JavaScript do not find it.
+for (const a of document.querySelectorAll(".email")) a.href = "mailto:" + [...a.dataset.e].reverse().join("");
+
+// Phone menu: the links fold under a button; picking one closes it.
+const menu = document.getElementById("menu"), links = document.getElementById("links");
+function openMenu(open) { menu.setAttribute("aria-expanded", open); links.classList.toggle("open", open); }
+menu.addEventListener("click", () => openMenu(menu.getAttribute("aria-expanded") !== "true"));
+links.addEventListener("click", (e) => { if (e.target.closest("a")) openMenu(false); });
+addEventListener("keydown", (e) => { if (e.key === "Escape") openMenu(false); });
+
+// Experience tabs: one workplace at a time, arrow keys move between tabs.
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+function select(tab, focus) {
+  for (const t of tabs) {
+    const on = t === tab;
+    t.setAttribute("aria-selected", on);
+    t.tabIndex = on ? 0 : -1;
+    document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+  }
+  if (focus) tab.focus();
+}
+tabs.forEach((tab, i) => {
+  tab.addEventListener("click", () => select(tab));
+  tab.addEventListener("keydown", (e) => {
+    const step = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[e.key];
+    if (step) { e.preventDefault(); select(tabs[(i + step + tabs.length) % tabs.length], true); }
+  });
+});
+select(tabs[0]);
+
+// Maps open full size in a viewer; click anywhere or press Escape to close.
+const viewer = document.getElementById("viewer"), big = viewer.querySelector("img");
+document.querySelectorAll(".maps a").forEach((a) => a.addEventListener("click", (e) => {
+  e.preventDefault();
+  big.src = a.href;
+  big.alt = a.querySelector("img").alt;
+  viewer.showModal();
+}));
+viewer.addEventListener("click", () => viewer.close());
+</script>
+</body>
+</html>
