@@ -7,7 +7,7 @@
   const ctx = canvas.getContext("2d");
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const pointer = { x: 0, y: 0, t: 0, active: false };
-  let size = 0, photo = null, lo = 0, hi = 1, color = "", parts = [], start = 0, running = false;
+  let size = 0, photo = null, lo = 0, hi = 1, color = "", font = "", parts = [], start = 0, running = false;
   let sx = -1e4, sy = -1e4; // smoothed pointer
 
 
@@ -53,9 +53,7 @@
                      phase: Math.random() * Math.PI * 2 });
       }
     }
-    ctx.font = `${fs}px ui-monospace, Menlo, Consolas, monospace`;
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
+    font = `${fs}px ui-monospace, Menlo, Consolas, monospace`;
     start = performance.now() - (reduced ? 5000 : 0);
     wake();
   }
@@ -71,7 +69,8 @@
     const radius = size * 0.2;
     let moving = false;
     ctx.clearRect(0, 0, size, size);
-    ctx.fillStyle = color;
+    // Text settings are set every frame because resizing a canvas resets them.
+    Object.assign(ctx, { font, fillStyle: color, textAlign: "center", textBaseline: "middle" });
     for (const p of parts) {
       const age = t - p.delay;
       if (age < 0) { moving = true; continue; }
@@ -135,6 +134,9 @@
   });
   canvas.addEventListener("pointerleave", () => { pointer.active = false; });
   canvas.addEventListener("pointerup", (e) => { if (e.pointerType === "touch") pointer.active = false; });
-  addEventListener("resize", () => { const old = size; fit(); if (Math.abs(old - size) > 1) build(); else wake(); });
+  // Phones fire resize when the address bar shows or hides on scroll; only a width change needs a rebuild.
+  addEventListener("resize", () => {
+    if (Math.abs(canvas.getBoundingClientRect().width - size) > 1) { fit(); build(); }
+  });
   new MutationObserver(build).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
 })();
